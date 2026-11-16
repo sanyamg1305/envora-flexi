@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "python3 -m http.server 3840",
     "start": "python3 -m http.server 3840",
-    "build": "mkdir -p public && cp index.html public/index.html"
+    "build": "mkdir -p public && cp *.html public/ 2>/dev/null || true"
   },
   "keywords": [
     "mcm",
