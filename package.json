@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "python3 -m http.server 3840",
     "start": "python3 -m http.server 3840",
-    "build": "echo 'Static HTML build ready'"
+    "build": "mkdir -p public && cp index.html public/index.html"
   },
   "keywords": [
     "mcm",
