@@ -1,0 +1,21 @@
+{
+  "name": "envora-flexi",
+  "version": "1.0.0",
+  "description": "Envora Flexi Private Limited - Flexible Stone / MCM Wall Cladding Sheets",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 3840",
+    "start": "python3 -m http.server 3840",
+    "build": "echo 'Static HTML build ready'"
+  },
+  "keywords": [
+    "mcm",
+    "flexible-stone",
+    "wall-cladding",
+    "stone-sheets",
+    "interior-design",
+    "exterior-cladding"
+  ],
+  "author": "Envora Flexi Private Limited",
+  "license": "UNLICENSED"
+}
