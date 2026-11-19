@@ -6,7 +6,7 @@
 <title>Envora Flexi | Flexible Stone / MCM Wall Cladding Sheets</title>
 <meta name="description" content="Envora Flexi Private Limited – Manufacture and supply of Flexible Stone Sheets (MCM – Modified Clay Material) for interior and exterior wall cladding in 3mm to 8mm thickness.">
 <meta name="keywords" content="flexible stone, MCM sheets, modified clay material, wall cladding sheets, marble finish sheets, textured stone, architectural cladding, interior cladding, exterior facade">
-<meta name="theme-color" content="#F3F3F1">
+<meta name="theme-color" content="#F7F6F2">
 <meta name="robots" content="index, follow">
 
 <!-- Open Graph / WhatsApp / Facebook -->
@@ -23,17 +23,23 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=Marcellus&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D2321' stroke-width='2'><path d='M4 19C4 19 8 7 19 4'/><path d='M7 21C7 21 11 10 21 7'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23161918' stroke-width='2'><path d='M4 19C4 19 8 7 19 4'/><path d='M7 21C7 21 11 10 21 7'/></svg>">
+
 <style>
 :root{
   color-scheme:light;
-  --bg:#F3F3F1;
-  --alt:#EAEAE7;
-  --ink:#1D2321;
-  --mut:#6F7472;
-  --line:#D3D4D0;
-  --accent:#9C6546;
+  --bg:#F7F6F2;
+  --alt:#ECE9E1;
+  --card:#FFFFFF;
+  --ink:#161918;
+  --mut:#686D69;
+  --line:#DBD8CF;
+  --line-light:rgba(219,216,207,0.6);
+  --accent:#A85A38;
+  --gold:#B68D40;
+  --gold-tint:rgba(182,141,64,0.08);
+  --stone-warm:#E3DFD5;
   --f:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   --h:"Marcellus","Trajan Pro",Georgia,"Times New Roman",serif;
   box-sizing:border-box;
@@ -42,84 +48,438 @@
 }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--f);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
-a{color:inherit}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font:400 16.5px/1.7 var(--f);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  background-image:radial-gradient(var(--line) 0.5px, transparent 0.5px);
+  background-size:32px 32px;
+  background-position:0 0;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:45}
+a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 input,select,textarea{font-family:inherit}
-:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 p,h1,h2,h3,h4,ul{margin:0}
 ul{padding:0;list-style:none}
-.w{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
-h1,h2,h3,h4{font-family:var(--h);font-weight:400;letter-spacing:-.01em;line-height:1.08}
-h2{font-size:clamp(2.1rem,4.4vw,3.5rem)}
+.w{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4.5vw,60px)}
+h1,h2,h3,h4{font-family:var(--h);font-weight:400;letter-spacing:-.015em;line-height:1.1}
+h2{font-size:clamp(2.3rem,4.6vw,3.8rem)}
 .mut{color:var(--mut)}
-section{padding:clamp(80px,11vw,140px) 0}
+section{padding:clamp(84px,11vw,144px) 0;position:relative}
+
+/* Top Progress Thread */
+.scroll-progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:2.5px;
+  width:0%;
+  background:linear-gradient(90deg, var(--gold), var(--accent));
+  z-index:100;
+  transition:width .1s linear;
+}
 
 /* Header */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(243,243,241,0.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
-header.scrolled{border-color:var(--line);background:rgba(243,243,241,0.98)}
-.bar{display:flex;align-items:center;justify-content:space-between;height:76px}
-.logo{text-decoration:none;font-family:var(--h);font-weight:400;letter-spacing:.3em;font-size:1.05rem;display:flex;align-items:center;gap:6px}
-.logo span{color:var(--mut);letter-spacing:.3em}
-nav{display:flex;gap:34px;font-size:.92rem}
-nav a{text-decoration:none;color:var(--mut);transition:color .3s;position:relative;padding:4px 0}
+header{
+  position:sticky;
+  top:env(safe-area-inset-top,0px);
+  z-index:40;
+  background:rgba(247,246,242,0.94);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-light);
+  transition:border-color .3s,background .3s,box-shadow .3s;
+}
+header.scrolled{
+  border-color:var(--line);
+  background:rgba(247,246,242,0.98);
+  box-shadow:0 8px 30px rgba(22,25,24,0.03);
+}
+.header-topbar{
+  height:32px;
+  background:var(--alt);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.73rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--mut);
+  font-weight:500;
+  padding:0 20px;
+}
+.header-topbar span{color:var(--gold);margin:0 10px}
+.bar{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{
+  text-decoration:none;
+  font-family:var(--h);
+  font-weight:400;
+  letter-spacing:.28em;
+  font-size:1.15rem;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--ink);
+}
+.logo span{
+  color:var(--mut);
+  letter-spacing:.28em;
+  font-family:var(--f);
+  font-size:.76rem;
+  font-weight:600;
+  border-left:1px solid var(--line);
+  padding-left:10px;
+}
+nav{display:flex;gap:36px;font-size:.9rem;letter-spacing:.03em}
+nav a{
+  text-decoration:none;
+  color:var(--mut);
+  transition:color .3s;
+  position:relative;
+  padding:6px 0;
+}
 nav a:hover{color:var(--ink)}
-nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--ink);transition:width .3s cubic-bezier(.2,.8,.2,1)}
+nav a::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:0;
+  height:1.5px;
+  background:var(--accent);
+  transition:width .3s cubic-bezier(.2,.8,.2,1);
+}
 nav a:hover::after{width:100%}
 
 .actions{display:flex;align-items:center;gap:20px}
-.btn{display:inline-block;background:var(--ink);color:var(--bg);padding:17px 34px;text-decoration:none;font-size:.92rem;letter-spacing:.05em;transition:background .35s,transform .2s;border:1px solid var(--ink)}
-.btn:hover{background:#3b4340;color:var(--bg);transform:translateY(-1px)}
-.btn-alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.btn-alt:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.lnk{font-size:.92rem;letter-spacing:.05em;text-decoration:none;padding-bottom:4px;border-bottom:1px solid var(--ink);transition:color .3s,border-color .3s}
-.lnk:hover{color:var(--mut);border-color:var(--mut)}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  background:var(--ink);
+  color:var(--bg);
+  padding:16px 32px;
+  text-decoration:none;
+  font-size:.88rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition:all .3s cubic-bezier(.2,.8,.2,1);
+  border:1px solid var(--ink);
+  position:relative;
+  overflow:hidden;
+}
+.btn:hover{
+  background:#262B28;
+  border-color:var(--gold);
+  color:var(--bg);
+  transform:translateY(-2px);
+  box-shadow:0 12px 28px rgba(22,25,24,0.12);
+}
+.btn-gold{
+  background:transparent;
+  color:var(--ink);
+  border:1px solid var(--line);
+}
+.btn-gold:hover{
+  background:var(--ink);
+  color:var(--bg);
+  border-color:var(--ink);
+}
+.lnk{
+  font-size:.88rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  text-decoration:none;
+  padding-bottom:4px;
+  border-bottom:1px solid var(--ink);
+  transition:color .3s,border-color .3s;
+}
+.lnk:hover{color:var(--accent);border-color:var(--accent)}
 
 .mobile-toggle{display:none;padding:8px;color:var(--ink);cursor:pointer}
 
 /* Mobile Navigation Drawer */
-.mobile-nav-panel{position:fixed;top:76px;left:0;width:100%;height:calc(100svh - 76px);background:var(--bg);z-index:35;padding:36px clamp(20px,4vw,56px);transform:translateY(-100%);transition:transform .4s cubic-bezier(.16,1,.3,1);overflow-y:auto;border-bottom:1px solid var(--line);box-shadow:0 20px 40px rgba(0,0,0,.08)}
+.mobile-nav-panel{
+  position:fixed;
+  top:110px;
+  left:0;
+  width:100%;
+  height:calc(100svh - 110px);
+  background:var(--bg);
+  z-index:35;
+  padding:36px clamp(20px,4vw,56px);
+  transform:translateY(-100%);
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+  overflow-y:auto;
+  border-bottom:1px solid var(--line);
+  box-shadow:0 24px 48px rgba(0,0,0,.08);
+}
 .mobile-nav-panel.open{transform:translateY(0)}
-.mobile-links{display:flex;flex-direction:column;gap:24px;margin-bottom:36px}
-.mobile-links a{font-family:var(--h);font-size:1.8rem;text-decoration:none;color:var(--ink);transition:color .2s}
-.mobile-links a:hover{color:var(--mut)}
+.mobile-links{display:flex;flex-direction:column;gap:22px;margin-bottom:36px}
+.mobile-links a{
+  font-family:var(--h);
+  font-size:1.85rem;
+  text-decoration:none;
+  color:var(--ink);
+  transition:color .2s;
+}
+.mobile-links a:hover{color:var(--accent)}
 
 /* Hero Section */
-.hero{position:relative;overflow:hidden;min-height:calc(100svh - 76px);display:flex;align-items:flex-end;padding:0 0 clamp(40px,6vw,72px);border-top:1px solid var(--line)}
-.veins{position:absolute;inset:-8%;width:116%;height:116%;pointer-events:none;
-  -webkit-mask-image:linear-gradient(100deg,transparent 8%,#000 64%);mask-image:linear-gradient(100deg,transparent 8%,#000 64%);
-  transition:transform .4s ease-out;will-change:transform}
-.hero .w{position:relative;width:100%}
-.hero h1{font-size:clamp(3.1rem,9.2vw,8.2rem);font-weight:400;letter-spacing:-.02em;line-height:.98}
+.hero{
+  position:relative;
+  overflow:hidden;
+  min-height:calc(100svh - 110px);
+  display:flex;
+  align-items:center;
+  padding:clamp(40px,7vw,90px) 0;
+  border-bottom:1px solid var(--line);
+}
+.hero-veins{
+  position:absolute;
+  inset:-8%;
+  width:116%;
+  height:116%;
+  pointer-events:none;
+  -webkit-mask-image:linear-gradient(110deg, transparent 5%, rgba(0,0,0,0.85) 60%);
+  mask-image:linear-gradient(110deg, transparent 5%, rgba(0,0,0,0.85) 60%);
+  transition:transform .4s ease-out;
+  will-change:transform;
+  opacity:.65;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr 0.95fr;
+  gap:clamp(40px,6vw,90px);
+  align-items:center;
+  position:relative;
+}
+.hero-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.76rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--mut);
+  background:var(--alt);
+  border:1px solid var(--line);
+  padding:6px 14px;
+  margin-bottom:24px;
+}
+.hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.hero h1{
+  font-size:clamp(3.4rem,8.4vw,7.8rem);
+  font-weight:400;
+  letter-spacing:-.03em;
+  line-height:.96;
+  margin-bottom:28px;
+}
 .hero h1 span{display:block;overflow:hidden;padding-bottom:.06em}
 .hero h1 b{display:block;font-weight:inherit}
-.hero-low{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:clamp(40px,6vw,72px);align-items:end}
-.hero-low p{max-width:38ch;color:var(--mut);font-size:1.05rem}
-.cta{display:flex;align-items:center;gap:24px;margin-top:32px;flex-wrap:wrap}
-.spec div{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-top:1px solid var(--line);font-size:.93rem}
-.spec div:last-child{border-bottom:1px solid var(--line)}
-.spec span{color:var(--mut)}
+.hero-desc{
+  max-width:44ch;
+  color:var(--mut);
+  font-size:1.1rem;
+  line-height:1.75;
+  margin-bottom:36px;
+}
+.cta-group{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+
+/* Hero Monolith Interactive Specimen */
+.monolith-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:clamp(24px,3.5vw,36px);
+  box-shadow:0 30px 60px rgba(22,25,24,0.06);
+  position:relative;
+  transition:transform .4s ease,box-shadow .4s ease;
+}
+.monolith-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 36px 72px rgba(22,25,24,0.09);
+}
+.monolith-tag{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  border-bottom:1px solid var(--line);
+  padding-bottom:14px;
+  margin-bottom:20px;
+}
+.monolith-tag h3{font-size:.92rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.monolith-tag span{font-size:.78rem;color:var(--accent);letter-spacing:.08em;font-weight:600}
+.monolith-canvas{
+  width:100%;
+  height:320px;
+  background:var(--alt);
+  border:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.monolith-canvas svg{width:100%;height:100%}
+.monolith-footer{
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  font-size:.84rem;
+}
+.monolith-footer div{
+  background:var(--bg);
+  border:1px solid var(--line);
+  padding:10px 14px;
+}
+.monolith-footer div span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);margin-bottom:2px}
+.monolith-footer div strong{color:var(--ink);font-weight:600}
+
+/* Metric Ribbon */
+.metric-ribbon{
+  background:var(--alt);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:32px 0;
+}
+.metric-ribbon-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:32px;
+}
+.m-item{border-left:1px solid var(--line);padding-left:24px}
+.m-item:first-child{border-left:none;padding-left:0}
+.m-label{display:block;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:6px;font-weight:500}
+.m-val{display:block;font-family:var(--h);font-size:clamp(1.5rem,2.4vw,2.2rem);color:var(--ink);line-height:1.2;margin-bottom:4px}
+.m-val small{font-size:.9rem;font-family:var(--f);color:var(--mut);font-weight:400}
+.m-sub{display:block;font-size:.85rem;color:var(--mut)}
 
 /* Statement */
-.state p{font-family:var(--h);font-size:clamp(1.6rem,3.4vw,2.8rem);font-weight:400;line-height:1.3;letter-spacing:-.005em;max-width:26em}
+.state{padding:clamp(70px,10vw,120px) 0;background:var(--bg);border-bottom:1px solid var(--line)}
+.state p{
+  font-family:var(--h);
+  font-size:clamp(1.7rem,3.4vw,2.9rem);
+  font-weight:400;
+  line-height:1.32;
+  letter-spacing:-.01em;
+  max-width:28em;
+  color:var(--ink);
+}
+.state p span{color:var(--accent)}
 
-/* Collections */
-.row{display:grid;grid-template-columns:1.3fr 1.4fr 1fr;gap:32px;padding:clamp(34px,5vw,56px) 0;border-top:1px solid var(--line);align-items:baseline;cursor:pointer;transition:background .3s}
-.row:hover{background:rgba(234,234,231,0.4)}
-.row:last-child{border-bottom:1px solid var(--line)}
-.row h3{font-size:clamp(2rem,4.2vw,3.6rem);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.row:hover h3{transform:translateX(12px)}
-.row p{color:var(--mut)}
-.row dl{margin:0;font-size:.93rem}
-.row dl div{display:flex;justify-content:space-between;gap:16px;padding:5px 0}
-.row dt{color:var(--mut)}
-.row dd{margin:0}
-.head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:clamp(40px,6vw,72px)}
-.head p{max-width:38ch;color:var(--mut)}
+/* Architectural Material Gallery (Collections) */
+#collections{background:var(--bg);border-bottom:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:clamp(40px,6vw,72px)}
+.head p{max-width:40ch;color:var(--mut);font-size:1.05rem}
+.collections-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:clamp(24px,3.5vw,40px);
+}
+.collection-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:clamp(24px,3vw,36px);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s ease,border-color .4s ease;
+  position:relative;
+  overflow:hidden;
+}
+.collection-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 24px 56px rgba(22,25,24,0.08);
+  border-color:var(--ink);
+}
+.collection-slab-wrap{
+  width:100%;
+  height:240px;
+  background:#E5E2D9;
+  border:1px solid var(--line);
+  margin-bottom:24px;
+  position:relative;
+  overflow:hidden;
+  transition:all .4s ease;
+}
+.collection-slab-wrap svg{width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.collection-card:hover .collection-slab-wrap svg{transform:scale(1.05)}
+.collection-slab-sheen{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(125deg, transparent 40%, rgba(255,255,255,0.4) 50%, transparent 60%);
+  opacity:0;
+  transition:opacity .5s ease,transform .8s ease;
+  pointer-events:none;
+}
+.collection-card:hover .collection-slab-sheen{
+  opacity:1;
+  transform:translate3d(10%,10%,0);
+}
+.collection-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:12px;
+}
+.collection-card h3{
+  font-family:var(--h);
+  font-size:clamp(1.8rem,3vw,2.4rem);
+  color:var(--ink);
+}
+.collection-num{
+  font-family:var(--h);
+  font-size:1.1rem;
+  color:var(--gold);
+  letter-spacing:.06em;
+}
+.collection-card p{
+  color:var(--mut);
+  font-size:.98rem;
+  line-height:1.6;
+  margin-bottom:22px;
+}
+.collection-specs{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:24px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+}
+.spec-pill{
+  font-size:.78rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  background:var(--alt);
+  color:var(--ink);
+  padding:5px 12px;
+  border:1px solid var(--line);
+}
+.collection-action{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:.85rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--ink);
+  transition:color .2s;
+}
+.collection-card:hover .collection-action{color:var(--accent)}
 
 /* Benefits Grid & Interactive Cards */
-.alt{background:var(--alt)}
+.alt{background:var(--alt);border-bottom:1px solid var(--line)}
 .benefit-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -127,9 +487,9 @@ nav a:hover::after{width:100%}
   margin-top:clamp(32px,5vw,56px);
 }
 .benefit-card{
-  background:var(--bg);
+  background:var(--card);
   border:1px solid var(--line);
-  padding:clamp(28px,4vw,36px);
+  padding:clamp(28px,4vw,38px);
   display:flex;
   flex-direction:column;
   justify-content:space-between;
@@ -138,7 +498,7 @@ nav a:hover::after{width:100%}
 }
 .benefit-card:hover{
   transform:translateY(-6px);
-  box-shadow:0 18px 36px rgba(29,35,33,0.06);
+  box-shadow:0 22px 50px rgba(22,25,24,0.07);
   border-color:var(--ink);
 }
 .benefit-top{
@@ -150,7 +510,7 @@ nav a:hover::after{width:100%}
 .benefit-num{
   font-family:var(--h);
   font-size:1.6rem;
-  color:var(--mut);
+  color:var(--gold);
   line-height:1;
   transition:color .3s ease;
 }
@@ -168,8 +528,8 @@ nav a:hover::after{width:100%}
 }
 .benefit-gfx{
   width:100%;
-  height:115px;
-  background:var(--alt);
+  height:120px;
+  background:var(--bg);
   border:1px solid var(--line);
   margin-bottom:24px;
   display:flex;
@@ -180,8 +540,8 @@ nav a:hover::after{width:100%}
   transition:background .3s ease,border-color .3s ease;
 }
 .benefit-card:hover .benefit-gfx{
-  background:#E6E6E3;
-  border-color:rgba(29,35,33,0.28);
+  background:#EAE7DF;
+  border-color:rgba(22,25,24,0.3);
 }
 .benefit-gfx svg{
   width:100%;
@@ -190,7 +550,7 @@ nav a:hover::after{width:100%}
 }
 .benefit-card h3{
   font-family:var(--h);
-  font-size:1.6rem;
+  font-size:1.65rem;
   line-height:1.25;
   margin-bottom:16px;
   color:var(--ink);
@@ -205,7 +565,7 @@ nav a:hover::after{width:100%}
 }
 .benefit-card li{
   color:var(--mut);
-  font-size:.95rem;
+  font-size:.96rem;
   line-height:1.55;
   position:relative;
   padding-left:18px;
@@ -269,218 +629,490 @@ nav a:hover::after{width:100%}
 }
 
 /* Thickness Section */
-.th{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(40px,6vw,72px);border-top:1px solid var(--line)}
-.tc{padding:36px 36px 8px 0;transition:background .3s}
-.tc+.tc{padding-left:36px;border-left:1px solid var(--line)}
-.tc b{display:block;font-family:var(--h);font-size:clamp(4.4rem,10vw,8rem);font-weight:400;letter-spacing:-.03em;line-height:1}
-.tc b i{font-style:normal;font-size:1.4rem;letter-spacing:0;color:var(--mut);margin-left:8px;font-weight:300}
-.tc h3{font-size:1.35rem;margin:22px 0 8px}
-.tc p{color:var(--mut);max-width:30ch}
+#thickness{background:var(--bg);border-bottom:1px solid var(--line)}
+.th{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(20px,3vw,36px);
+  margin-top:clamp(40px,6vw,72px);
+}
+.tc{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:clamp(28px,3.5vw,40px);
+  cursor:pointer;
+  transition:all .35s cubic-bezier(.2,.8,.2,1);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.tc:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 48px rgba(22,25,24,0.07);
+  border-color:var(--ink);
+}
+.tc-cross-section{
+  height:70px;
+  background:var(--alt);
+  border:1px solid var(--line);
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px;
+}
+.tc-cross-section svg{width:100%;height:100%}
+.tc b{
+  display:block;
+  font-family:var(--h);
+  font-size:clamp(3.8rem,7vw,6.5rem);
+  font-weight:400;
+  letter-spacing:-.03em;
+  line-height:1;
+  color:var(--ink);
+}
+.tc b i{
+  font-style:normal;
+  font-size:1.4rem;
+  letter-spacing:0;
+  color:var(--gold);
+  margin-left:6px;
+  font-weight:300;
+}
+.tc h3{font-size:1.4rem;margin:18px 0 8px;color:var(--ink)}
+.tc p{color:var(--mut);font-size:.95rem;line-height:1.6;margin-bottom:20px}
+.tc-action{
+  font-size:.78rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--mut);
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition:color .2s;
+}
+.tc:hover .tc-action{color:var(--accent)}
 
 /* Applications */
-.al li{display:flex;justify-content:space-between;align-items:baseline;gap:32px;padding:26px 0;border-top:1px solid var(--line);transition:transform .3s ease,background .3s ease}
+#applications{border-bottom:1px solid var(--line)}
+.al li{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:32px;
+  padding:28px 0;
+  border-top:1px solid var(--line);
+  transition:transform .3s ease,background .3s ease;
+}
 .al li:hover{transform:translateX(8px)}
 .al li:last-child{border-bottom:1px solid var(--line)}
-.al h3{font-size:clamp(1.6rem,3vw,2.4rem)}
-.al p{color:var(--mut);max-width:36ch;text-align:right;font-size:.96rem}
+.al h3{font-size:clamp(1.7rem,3.2vw,2.5rem);color:var(--ink)}
+.al p{color:var(--mut);max-width:38ch;text-align:right;font-size:1rem}
 
 /* Interactive Before & After Transformation Slider */
-.before-after-box{margin-top:clamp(40px,6vw,60px);background:var(--bg);border:1px solid var(--line);padding:clamp(20px,4vw,36px)}
-.ba-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;flex-wrap:wrap;gap:10px}
-.ba-frame{position:relative;width:100%;height:380px;background:#dededc;overflow:hidden;border:1px solid var(--line);user-select:none}
-.ba-panel{position:absolute;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--h)}
-.ba-after{background:#e2dfd9;color:var(--ink)}
-.ba-before{background:#1d2321;color:#f3f3f1;clip-path:polygon(0 0, 50% 0, 50% 100%, 0 100%)}
-.ba-content{text-align:center;padding:24px}
-.ba-content h4{font-size:clamp(1.8rem,4vw,3rem);margin-bottom:8px}
-.ba-content p{font-family:var(--f);font-size:.95rem;max-width:36ch;margin:0 auto}
-.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--bg);transform:translateX(-50%);cursor:ew-resize;z-index:10;box-shadow:0 0 10px rgba(0,0,0,0.3)}
-.ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:var(--bg);border:1px solid var(--ink);color:var(--ink);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:600}
+.before-after-box{
+  margin-top:clamp(48px,7vw,72px);
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:clamp(24px,4vw,40px);
+  box-shadow:0 24px 60px rgba(22,25,24,0.05);
+}
+.ba-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:24px;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.ba-frame{
+  position:relative;
+  width:100%;
+  height:420px;
+  background:#dededc;
+  overflow:hidden;
+  border:1px solid var(--line);
+  user-select:none;
+}
+.ba-panel{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--h);
+}
+.ba-after{
+  background:#EFECE6;
+  color:var(--ink);
+  background-image:linear-gradient(135deg, rgba(255,255,255,0.7), rgba(235,231,223,0.9));
+}
+.ba-before{
+  background:#262A29;
+  color:#f3f3f1;
+  clip-path:polygon(0 0, 50% 0, 50% 100%, 0 100%);
+  background-image:radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size:24px 24px;
+}
+.ba-content{text-align:center;padding:32px;max-width:540px}
+.ba-content h4{font-size:clamp(2rem,4.4vw,3.2rem);margin-bottom:12px;line-height:1.1}
+.ba-content p{font-family:var(--f);font-size:1.02rem;max-width:40ch;margin:0 auto;line-height:1.6}
+.ba-handle{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:50%;
+  width:2px;
+  background:var(--card);
+  transform:translateX(-50%);
+  cursor:ew-resize;
+  z-index:10;
+  box-shadow:0 0 16px rgba(0,0,0,0.35);
+}
+.ba-knob{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:var(--ink);
+  border:2px solid var(--card);
+  color:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.85rem;
+  letter-spacing:.08em;
+  box-shadow:0 6px 18px rgba(0,0,0,0.25);
+}
 
-/* Compare */
-.scroll{overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:680px}
-th,td{text-align:left;padding:22px 24px;border-top:1px solid var(--line);vertical-align:top;transition:background .2s}
-th{font-weight:400;font-size:.95rem;color:var(--mut);padding-top:0;border-top:0}
-td:first-child,th:first-child{padding-left:0;color:var(--mut)}
-td.me,th.me{background:var(--alt);color:var(--ink);font-weight:500}
-tr:hover td{background:rgba(234,234,231,0.6)}
-tr:hover td.me{background:#e0e0dc}
-tbody tr:last-child td{border-bottom:1px solid var(--line)}
+/* Compare Matrix */
+#compare{background:var(--bg);border-bottom:1px solid var(--line)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;margin-top:clamp(32px,5vw,56px);font-size:.95rem;background:var(--card);border:1px solid var(--line)}
+th,td{padding:20px 24px;border:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--alt);font-family:var(--h);font-size:1.15rem;font-weight:400;color:var(--ink);letter-spacing:.02em}
+th.me,td.me{background:rgba(237,233,225,0.45);font-weight:500;color:var(--ink);border-left:2px solid var(--gold);border-right:2px solid var(--gold)}
+th.me{border-top:2px solid var(--gold);color:var(--accent)}
+tr:last-child td.me{border-bottom:2px solid var(--gold)}
+tr:hover td{background:rgba(247,246,242,0.6)}
+tr:hover td.me{background:rgba(237,233,225,0.75)}
 
-/* Interactive FAQ Accordion */
-.faq-list{margin-top:clamp(40px,6vw,60px);border-top:1px solid var(--line)}
-.faq-row{border-bottom:1px solid var(--line)}
-.faq-btn{width:100%;padding:24px 0;display:flex;justify-content:space-between;align-items:baseline;text-align:left;font-family:var(--h);font-size:clamp(1.2rem,2.4vw,1.6rem);color:var(--ink);cursor:pointer}
-.faq-btn:hover{color:var(--mut)}
-.faq-icon{font-family:var(--f);font-size:1.4rem;font-weight:300;transition:transform .3s ease}
-.faq-row.active .faq-icon{transform:rotate(45deg)}
-.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.2,.8,.2,1);color:var(--mut);font-size:1rem;line-height:1.7}
-.faq-row.active .faq-answer{max-height:180px;padding-bottom:24px}
+/* FAQs */
+#faq{background:var(--alt);border-bottom:1px solid var(--line)}
+.faq-list{margin-top:clamp(32px,5vw,56px);border-top:1px solid var(--line)}
+.faq-row{border-bottom:1px solid var(--line);background:var(--card);transition:background .2s}
+.faq-btn{
+  width:100%;
+  text-align:left;
+  padding:26px clamp(20px,3.5vw,36px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  font-family:var(--h);
+  font-size:clamp(1.2rem,2.2vw,1.55rem);
+  color:var(--ink);
+  cursor:pointer;
+}
+.faq-icon{
+  font-family:var(--f);
+  font-size:1.6rem;
+  font-weight:300;
+  color:var(--gold);
+  transition:transform .3s ease;
+}
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .4s cubic-bezier(.16,1,.3,1),padding .3s ease;
+  color:var(--mut);
+  line-height:1.75;
+  padding:0 clamp(20px,3.5vw,36px);
+  font-size:1.02rem;
+}
+.faq-row.active .faq-answer{
+  max-height:300px;
+  padding-bottom:28px;
+}
+.faq-row.active .faq-icon{transform:rotate(45deg);color:var(--accent)}
 
-/* Contact & Sample Section */
-.big{font-size:clamp(2.8rem,8vw,7rem);font-weight:400;letter-spacing:-.02em;line-height:1;max-width:10ch}
-.cg{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,8vw,120px);margin-top:clamp(48px,7vw,88px);align-items:start}
-.reach div{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
-.reach div:last-child{border-bottom:1px solid var(--line)}
-.reach span{color:var(--mut)}
-.reach a{text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .2s}
-.reach a:hover{border-color:var(--ink)}
+/* Contact / Trade Inquiry */
+#contact{background:var(--bg);border-bottom:1px solid var(--line)}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:clamp(40px,7vw,96px);
+  align-items:center;
+}
+.contact-left h2{margin-bottom:20px}
+.contact-left p{color:var(--mut);font-size:1.1rem;line-height:1.7;margin-bottom:32px;max-width:44ch}
+.reach{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:clamp(28px,4vw,40px);
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  box-shadow:0 18px 45px rgba(22,25,24,0.04);
+}
+.reach div{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:16px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--line);
+}
+.reach div:last-child{border-bottom:none;padding-bottom:0}
+.reach span{color:var(--mut);font-size:.82rem;text-transform:uppercase;letter-spacing:.1em}
+.reach a{font-weight:500;color:var(--ink);transition:color .2s}
+.reach a:hover{color:var(--accent)}
 
-/* Slide-out Sample Request Drawer */
-.drawer-backdrop{position:fixed;inset:0;background:rgba(29,35,33,0.6);backdrop-filter:blur(4px);z-index:90;opacity:0;pointer-events:none;transition:opacity .35s ease}
-.drawer-backdrop.open{opacity:1;pointer-events:auto}
-.drawer{position:fixed;top:0;right:0;width:100%;max-width:480px;height:100svh;background:var(--bg);z-index:100;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;box-shadow:-20px 0 50px rgba(0,0,0,0.15)}
-.drawer.open{transform:translateX(0)}
-.drawer-head{padding:28px 36px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-.drawer-head h3{font-family:var(--h);font-size:1.6rem}
-.drawer-close{font-size:1.8rem;line-height:1;color:var(--mut);cursor:pointer;transition:color .2s}
-.drawer-close:hover{color:var(--ink)}
-.drawer-body{flex:1;overflow-y:auto;padding:32px 36px}
-.form-grp{margin-bottom:20px}
-.form-grp label{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:8px}
-.form-input,.form-select,.form-textarea{width:100%;padding:14px;border:1px solid var(--line);background:var(--alt);color:var(--ink);font-size:.95rem;outline:none;transition:border-color .2s,background .2s}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--ink);background:var(--bg)}
-.swatch-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.chip{font-size:.82rem;padding:6px 12px;border:1px solid var(--line);background:var(--bg);cursor:pointer;transition:all .2s}
-.chip.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-
-/* Floating WhatsApp Quick Action Button */
-.wa-float{position:fixed;bottom:28px;right:28px;z-index:50;display:flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);padding:12px 20px;text-decoration:none;font-size:.86rem;letter-spacing:.04em;border-radius:40px;box-shadow:0 8px 24px rgba(29,35,33,0.25);transition:transform .25s ease,background .2s}
-.wa-float:hover{transform:translateY(-2px);background:#333c39}
-.wa-icon{width:18px;height:18px;fill:currentColor}
-
-/* Toast */
-.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(40px);background:var(--ink);color:var(--bg);padding:12px 24px;font-size:.88rem;letter-spacing:.02em;z-index:200;opacity:0;pointer-events:none;transition:all .3s ease}
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-
-/* Footer */
+/* Architectural Footer */
 .site-footer{
-  padding:clamp(56px,8vw,80px) 0 36px;
+  padding:clamp(64px,9vw,96px) 0 36px;
   background:var(--bg);
   border-top:1px solid var(--line);
-  font-size:.9rem;
+  font-size:.92rem;
 }
 .footer-top{
   display:grid;
   grid-template-columns:2fr 1fr 1fr 1.2fr;
-  gap:clamp(32px,5vw,60px);
-  padding-bottom:clamp(40px,6vw,56px);
+  gap:clamp(32px,5vw,64px);
+  padding-bottom:clamp(44px,6vw,64px);
   border-bottom:1px solid var(--line);
 }
 .footer-desc{
   color:var(--mut);
-  margin:16px 0 20px;
-  max-width:34ch;
-  line-height:1.6;
+  margin:18px 0 24px;
+  max-width:36ch;
+  line-height:1.7;
 }
-.footer-contact{
-  color:var(--mut);
-  font-size:.88rem;
-}
-.footer-contact a{
-  color:var(--ink);
-  font-weight:500;
-  text-decoration:none;
-}
-.footer-contact a:hover{
-  color:var(--accent);
-}
+.footer-contact{color:var(--mut);font-size:.9rem}
+.footer-contact a{color:var(--ink);font-weight:500}
+.footer-contact a:hover{color:var(--accent)}
 .footer-nav-col h4{
   font-family:var(--h);
-  font-size:1.05rem;
-  font-weight:400;
-  margin-bottom:18px;
+  font-size:1.1rem;
+  margin-bottom:20px;
   letter-spacing:.04em;
   color:var(--ink);
 }
-.footer-nav-col ul{
-  list-style:none;
-  padding:0;
-  margin:0;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.footer-nav-col a{
-  color:var(--mut);
-  text-decoration:none;
-  transition:color .2s;
-}
-.footer-nav-col a:hover{
-  color:var(--ink);
-}
+.footer-nav-col ul{display:flex;flex-direction:column;gap:12px}
+.footer-nav-col a{color:var(--mut);transition:color .2s}
+.footer-nav-col a:hover{color:var(--ink)}
 .footer-bottom{
   display:flex;
   justify-content:space-between;
   align-items:center;
   flex-wrap:wrap;
   gap:16px;
-  padding-top:28px;
-  font-size:.84rem;
+  padding-top:32px;
+  font-size:.86rem;
   color:var(--mut);
 }
-.footer-legal-links{
+.footer-legal-links{display:flex;gap:24px;align-items:center}
+.footer-legal-links a:hover{color:var(--ink)}
+
+/* Slide-Out Sample & Quote Drawer */
+.drawer-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(22,25,24,0.6);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  z-index:90;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .35s ease;
+}
+.drawer-backdrop.open{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  width:min(540px,100%);
+  background:var(--bg);
+  z-index:95;
+  transform:translateX(100%);
+  transition:transform .45s cubic-bezier(.16,1,.3,1);
+  box-shadow:-20px 0 60px rgba(0,0,0,.15);
   display:flex;
-  gap:20px;
+  flex-direction:column;
+  overflow:hidden;
+}
+.drawer.open{transform:translateX(0)}
+.drawer-head{
+  padding:28px 36px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
   align-items:center;
+  background:var(--card);
 }
-.footer-legal-links a{
-  color:var(--mut);
-  text-decoration:none;
-  transition:color .2s;
-}
-.footer-legal-links a:hover{
+.drawer-head h3{font-family:var(--h);font-size:1.55rem;color:var(--ink)}
+.drawer-close{font-size:1.8rem;color:var(--mut);cursor:pointer;line-height:1;transition:color .2s}
+.drawer-close:hover{color:var(--ink)}
+.drawer-body{padding:36px;overflow-y:auto;flex:1}
+.form-grp{margin-bottom:22px}
+.form-grp label{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);margin-bottom:8px;font-weight:500}
+.form-input,.form-select,.form-textarea{
+  width:100%;
+  padding:14px 16px;
+  background:var(--card);
+  border:1px solid var(--line);
   color:var(--ink);
+  font-size:.95rem;
+  transition:border-color .2s,box-shadow .2s;
 }
+.form-input:focus,.form-select:focus,.form-textarea:focus{
+  border-color:var(--ink);
+  outline:none;
+  box-shadow:0 0 0 3px rgba(22,25,24,0.06);
+}
+.swatch-chips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chip{
+  padding:12px;
+  background:var(--card);
+  border:1px solid var(--line);
+  color:var(--mut);
+  text-align:left;
+  font-size:.86rem;
+  letter-spacing:.02em;
+  cursor:pointer;
+  transition:all .2s;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.chip::before{
+  content:"";
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--line);
+  transition:background .2s;
+}
+.chip.active{
+  border-color:var(--ink);
+  background:var(--alt);
+  color:var(--ink);
+  font-weight:500;
+}
+.chip.active::before{background:var(--accent)}
 .form-privacy-note{
-  font-size:.76rem;
+  font-size:.78rem;
   color:var(--mut);
   text-align:center;
-  margin-top:12px;
+  margin-top:14px;
   line-height:1.5;
 }
-.form-privacy-note a{
-  color:var(--ink);
-  text-decoration:underline;
-}
+.form-privacy-note a{color:var(--ink);text-decoration:underline}
 
+/* Floating WhatsApp Concierge */
+.wa-float{
+  position:fixed;
+  bottom:32px;
+  right:32px;
+  z-index:35;
+  background:#1E2B24;
+  color:#FFFFFF;
+  border:1px solid rgba(255,255,255,0.15);
+  padding:14px 22px;
+  border-radius:40px;
+  box-shadow:0 14px 36px rgba(0,0,0,0.22);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:.86rem;
+  letter-spacing:.04em;
+  text-decoration:none;
+  transition:all .3s cubic-bezier(.2,.8,.2,1);
+}
+.wa-float:hover{
+  transform:translateY(-3px);
+  background:#141F1A;
+  box-shadow:0 18px 42px rgba(0,0,0,0.28);
+  border-color:var(--gold);
+}
+.wa-dot{width:8px;height:8px;border-radius:50%;background:#25D366;animation:waPulse 2s infinite}
+@keyframes waPulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.5;transform:scale(1.2)}
+}
+.wa-icon{width:18px;height:18px;fill:currentColor}
+
+/* Toast */
+.toast{
+  position:fixed;
+  bottom:32px;
+  left:50%;
+  transform:translateX(-50%) translateY(40px);
+  background:var(--ink);
+  color:var(--bg);
+  padding:14px 28px;
+  font-size:.9rem;
+  letter-spacing:.02em;
+  z-index:200;
+  opacity:0;
+  pointer-events:none;
+  transition:all .3s ease;
+  border:1px solid var(--gold);
+}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+/* Responsive */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:48px}
+  .collections-grid{grid-template-columns:1fr}
+  .th{grid-template-columns:1fr}
+  .metric-ribbon-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .m-item{border-left:none;padding-left:0}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
 @media (max-width:860px){
   nav{display:none}
   .mobile-toggle{display:block}
-  .hero-low,.benefit-grid,.cg,.th,.row{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr 1fr}
-  .tc,.tc+.tc{padding:30px 0 6px;border-left:0;border-bottom:1px solid var(--line)}
-  .head{display:block}.head p{margin-top:16px}
-  .al li{display:block}.al p{text-align:left;margin-top:6px}
-  .row{gap:14px}
+  .benefit-grid{grid-template-columns:1fr}
+  .al li{display:block}.al p{text-align:left;margin-top:8px}
   .wa-float span{display:none}
   .wa-float{padding:14px;border-radius:50%}
 }
 @media (max-width:540px){
+  .header-topbar{display:none}
+  .metric-ribbon-grid{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;align-items:flex-start}
 }
 
+/* Animations */
 @media (prefers-reduced-motion:no-preference){
-  .veins{animation:vf 2.4s ease both,vd 48s ease-in-out 2.4s infinite alternate}
-  @keyframes vf{from{opacity:0}to{opacity:1}}
-  @keyframes vd{to{transform:translate3d(-2.5%,1.5%,0) scale(1.04)}}
   .hero h1 b{animation:up 1.3s cubic-bezier(.2,.8,.2,1) both}
   .hero h1 span:nth-child(2) b{animation-delay:.12s}
-  .hero h1 span:nth-child(3) b{animation-delay:.24s}
   @keyframes up{from{transform:translateY(105%)}to{transform:none}}
-  .hero-low{animation:fi 1.4s ease .7s both}
-  @keyframes fi{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-  .js .rv{opacity:0;transform:translateY(18px);transition:opacity 1.2s ease var(--d,0s),transform 1.2s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+  .js .rv{opacity:0;transform:translateY(22px);transition:opacity 1.2s ease var(--d,0s),transform 1.2s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
   .js .rv.in{opacity:1;transform:none}
 }
 </style>
 </head>
 <body>
 
+<!-- Top Scroll Progress Thread -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
 <!-- Header -->
 <header id="site-header">
+  <div class="header-topbar">
+    <span>•</span> ENVORA FLEXI PRIVATE LIMITED <span>•</span> ARCHITECTURAL MCM STONE CLADDING SHEETS <span>•</span> 3MM TO 8MM <span>•</span>
+  </div>
   <div class="w bar">
     <a class="logo" href="#top">ENVORA <span>FLEXI</span></a>
     <nav aria-label="Main Navigation">
@@ -492,7 +1124,7 @@ tbody tr:last-child td{border-bottom:1px solid var(--line)}
       <a href="#contact">Contact</a>
     </nav>
     <div class="actions">
-      <button class="lnk" id="btn-open-sample-nav" onclick="openDrawer('sample')">Request a sample</button>
+      <button class="btn btn-gold" id="btn-open-sample-nav" onclick="openDrawer('sample')">Request Specimen</button>
       <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -515,99 +1147,284 @@ tbody tr:last-child td{border-bottom:1px solid var(--line)}
     <a href="#faq" onclick="closeMobileNav()">FAQs</a>
     <a href="#contact" onclick="closeMobileNav()">Contact</a>
   </div>
-  <button class="btn" style="width:100%;text-align:center" onclick="closeMobileNav();openDrawer('sample')">Request a Sample</button>
+  <button class="btn" style="width:100%;text-align:center" onclick="closeMobileNav();openDrawer('sample')">Request Sample Kit</button>
 </div>
 
 <main id="top">
+
 <!-- Hero Section -->
-<section class="hero" style="padding-top:0;padding-bottom:clamp(40px,6vw,72px)">
-  <svg class="veins" id="hero-veins-svg" aria-hidden="true" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice">
+<section class="hero">
+  <!-- Subtle SVG Veins Atmospheric Layer -->
+  <svg class="hero-veins" id="hero-veins-svg" aria-hidden="true" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice">
     <filter id="c" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.0045" numOctaves="5" seed="4"/><feColorMatrix type="matrix" values="0 0 0 0 .6  0 0 0 0 .63  0 0 0 0 .62  0 0 1.5 0 -.5"/></filter>
     <filter id="a" x="0" y="0" width="100%" height="100%"><feTurbulence type="turbulence" baseFrequency="0.003 0.009" numOctaves="5" seed="7"/><feColorMatrix type="matrix" values="0 0 0 0 .36  0 0 0 0 .4  0 0 0 0 .4  -10 0 0 0 .86"/></filter>
-    <filter id="b" x="0" y="0" width="100%" height="100%"><feTurbulence type="turbulence" baseFrequency="0.008 0.022" numOctaves="3" seed="3"/><feColorMatrix type="matrix" values="0 0 0 0 .45  0 0 0 0 .49  0 0 0 0 .49  -15 0 0 0 .9"/></filter>
-    <g transform="rotate(-22 700 450)"><rect x="-300" y="-300" width="2000" height="1500" filter="url(#c)" opacity=".55"/><rect x="-300" y="-300" width="2000" height="1500" filter="url(#a)" opacity=".7"/><rect x="-300" y="-300" width="2000" height="1500" filter="url(#b)" opacity=".4"/></g>
+    <g transform="rotate(-20 700 450)">
+      <rect x="-300" y="-300" width="2000" height="1500" filter="url(#c)" opacity=".45"/>
+      <rect x="-300" y="-300" width="2000" height="1500" filter="url(#a)" opacity=".55"/>
+    </g>
   </svg>
+
   <div class="w">
-    <h1><span><b>Flexible</b></span><span><b>stone</b></span><span><b>cladding.</b></span></h1>
-    <div class="hero-low">
+    <div class="hero-grid">
+      <!-- Left Column: Monumental Headline & Narrative -->
       <div>
-        <p>Flexible Stone / MCM wall cladding sheets in marble and stone finishes, for interior and exterior walls.</p>
-        <div class="cta">
-          <button class="btn" onclick="openDrawer('sample')">Request a sample</button>
-          <a class="lnk" href="#collections">View collections</a>
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span> ARCHITECTURAL SPECIFICATION • MCM CLADDING
+        </div>
+        <h1>
+          <span><b>Real stone.</b></span>
+          <span><b>Unreal flexibility.</b></span>
+        </h1>
+        <p class="hero-desc">
+          We manufacture and supply Flexible Stone Sheets (MCM – Modified Clay Material) for interior and exterior wall cladding, offering natural stone finishes in lightweight, flexible, and easy-to-install sheets.
+        </p>
+        <div class="cta-group">
+          <button class="btn" onclick="openDrawer('sample')">
+            Request Architect Sample Kit <span>→</span>
+          </button>
+          <a class="lnk" href="#collections">Explore Collections ↓</a>
         </div>
       </div>
-      <div class="spec">
-        <div><span>Material</span>Flexible Stone / MCM</div>
-        <div><span>Thickness</span>3 mm to 8 mm</div>
-        <div><span>Use</span>Interior and exterior walls</div>
+
+      <!-- Right Column: Interactive Curved Monolith Specimen -->
+      <div class="monolith-card rv">
+        <div class="monolith-tag">
+          <h3>Architectural Specimen</h3>
+          <span>MCM · 3mm to 8mm</span>
+        </div>
+        <div class="monolith-canvas" id="monolith-canvas">
+          <svg viewBox="0 0 500 320" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="monolithLight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
+                <stop offset="45%" stop-color="#EBE7DE" stop-opacity="0.95"/>
+                <stop offset="100%" stop-color="#D5CEBE" stop-opacity="1"/>
+              </linearGradient>
+              <linearGradient id="goldVein" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#B68D40" stop-opacity="0.6"/>
+                <stop offset="50%" stop-color="#A85A38" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#B68D40" stop-opacity="0.5"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Column Substrate Perspective -->
+            <ellipse cx="250" cy="275" rx="140" ry="24" fill="none" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <text x="250" y="295" font-size="9" fill="var(--mut)" text-anchor="middle" font-family="var(--f)" letter-spacing="1.5">SUBSTRATE RADIUS R ≥ 200MM</text>
+
+            <!-- 3D Curved Stone Monolith Sheet -->
+            <path id="monolith-slab-back" d="M 120 70 C 180 30, 320 30, 380 70 L 380 230 C 320 270, 180 270, 120 230 Z" fill="url(#monolithLight)" stroke="var(--line)" stroke-width="1.5"/>
+
+            <!-- Procedural Calacatta Marble Veins flowing across the curve -->
+            <path d="M 140 100 Q 220 70 280 130 T 360 110" stroke="url(#goldVein)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.85"/>
+            <path d="M 150 145 Q 210 180 270 140 T 350 200" stroke="#7A807C" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+            <path d="M 170 80 Q 230 115 310 90" stroke="url(#goldVein)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+            <path d="M 135 180 Q 220 220 320 170" stroke="#525854" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+            <!-- Sheet Edge Highlight -->
+            <path d="M 120 70 C 180 30, 320 30, 380 70" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+            <path d="M 120 230 C 180 270, 320 270, 380 230" stroke="var(--ink)" stroke-width="1.5" fill="none"/>
+
+            <!-- Caliper Measurement Overlay -->
+            <line x1="80" y1="120" x2="80" y2="180" stroke="var(--accent)" stroke-width="1.5"/>
+            <line x1="75" y1="120" x2="85" y2="120" stroke="var(--accent)" stroke-width="1.5"/>
+            <line x1="75" y1="180" x2="85" y2="180" stroke="var(--accent)" stroke-width="1.5"/>
+            <text x="70" y="154" font-size="9" fill="var(--accent)" font-weight="600" text-anchor="end" font-family="var(--f)">3 – 8 mm</text>
+          </svg>
+        </div>
+        <div class="monolith-footer">
+          <div>
+            <span>Material Classification</span>
+            <strong>Modified Clay Material</strong>
+          </div>
+          <div>
+            <span>Cold-Bend Capacity</span>
+            <strong>Columns & Arches (R ≥ 200mm)</strong>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Architectural Metric Ribbon -->
+<div class="metric-ribbon">
+  <div class="w metric-ribbon-grid">
+    <div class="m-item">
+      <span class="m-label">01 / STRUCTURAL WEIGHT</span>
+      <strong class="m-val">3.5 – 5.5 <small>kg/m²</small></strong>
+      <span class="m-sub">85% lighter than natural granite slab</span>
+    </div>
+    <div class="m-item">
+      <span class="m-label">02 / CALIBRATED THICKNESS</span>
+      <strong class="m-val">3mm · 5mm · 8mm</strong>
+      <span class="m-sub">Ultra-slim architectural profiles</span>
+    </div>
+    <div class="m-item">
+      <span class="m-label">03 / COLD CURVATURE</span>
+      <strong class="m-val">R ≥ 200 <small>mm</small></strong>
+      <span class="m-sub">Cold-bendable on site without heat</span>
+    </div>
+    <div class="m-item">
+      <span class="m-label">04 / APPLICATION SCOPE</span>
+      <strong class="m-val">Interior & Exterior</strong>
+      <span class="m-sub">Weather-stable & Class A fire rated</span>
+    </div>
+  </div>
+</div>
 
 <!-- Statement -->
 <section class="state">
-  <div class="w"><p class="rv">Envora Flexi makes wall cladding sheets with the finish of marble and stone, in a material that is light, bendable and quick to install.</p></div>
+  <div class="w">
+    <p class="rv">
+      Envora Flexi produces flexible wall cladding sheets with the authentic look and feel of <span>marble and natural stone</span>, delivered in a material that is lightweight, bendable, and engineered for rapid installation.
+    </p>
+  </div>
 </section>
 
-<!-- Collections -->
+<!-- Architectural Material Collections -->
 <section id="collections">
   <div class="w">
     <div class="head rv">
-      <h2>Collections</h2>
-      <p>Sold as sheets rather than tiles, so walls read as large, continuous surfaces.</p>
+      <div>
+        <span class="hero-tag" style="margin-bottom:12px">Material Library</span>
+        <h2>Collections</h2>
+      </div>
+      <p>Manufactured and supplied as large continuous sheets rather than rigid tiles, allowing seamless architectural wall surfaces with minimal joints.</p>
     </div>
-    <div>
-      <div class="row rv" onclick="openDrawer('sample','Marble Finish')">
-        <h3>Marble Finish</h3>
-        <p>A textured, stone-like surface with the depth and feel of marble and other natural stone designs.</p>
-        <dl>
-          <div><dt>Surface</dt><dd>Textured Stone</dd></div>
-          <div><dt>Thickness</dt><dd>3 mm to 8 mm</dd></div>
-          <div><dt>Use</dt><dd>Interior, exterior</dd></div>
-        </dl>
-      </div>
 
-      <div class="row rv" onclick="openDrawer('sample','Marble Print')">
-        <h3>Marble Print</h3>
-        <p>Printed marble designs on a flexible sheet, for a clean marble look across large wall areas.</p>
-        <dl>
-          <div><dt>Surface</dt><dd>Printed Design</dd></div>
-          <div><dt>Thickness</dt><dd>3 mm to 8 mm</dd></div>
-          <div><dt>Use</dt><dd>Interior, exterior</dd></div>
-        </dl>
-      </div>
+    <div class="collections-grid">
+      <!-- 01 Marble Finish -->
+      <article class="collection-card rv" onclick="openDrawer('sample','Marble Finish')">
+        <div class="collection-slab-wrap">
+          <svg viewBox="0 0 600 240" preserveAspectRatio="none">
+            <rect width="100%" height="100%" fill="#F5F3EC"/>
+            <!-- Statuario Veins -->
+            <path d="M -20 180 Q 150 140 280 80 T 520 30" stroke="#8A8E89" stroke-width="4.5" fill="none" opacity="0.6"/>
+            <path d="M 40 240 Q 220 160 380 120 T 620 60" stroke="#B68D40" stroke-width="2.5" fill="none" opacity="0.75"/>
+            <path d="M 120 20 Q 280 90 420 50 T 580 120" stroke="#737772" stroke-width="2" fill="none" opacity="0.5"/>
+            <path d="M 220 170 Q 310 130 400 160 T 540 180" stroke="#A85A38" stroke-width="1.8" fill="none" opacity="0.65"/>
+          </svg>
+          <div class="collection-slab-sheen"></div>
+        </div>
+        <div class="collection-header">
+          <h3>Marble Finish</h3>
+          <span class="collection-num">[ 01 ]</span>
+        </div>
+        <p>A textured stone-like surface with the authentic depth, tactile mineral fissures, and natural elegance of real marble finishes.</p>
+        <div class="collection-specs">
+          <span class="spec-pill">Textured Finish</span>
+          <span class="spec-pill">3mm to 8mm</span>
+          <span class="spec-pill">Interior & Exterior</span>
+        </div>
+        <div class="collection-action">
+          <span>Order Specimen Swatch</span>
+          <span>→</span>
+        </div>
+      </article>
 
-      <div class="row rv" onclick="openDrawer('sample','Textured Stone')">
-        <h3>Textured Stone</h3>
-        <p>Rich cleft slates, volcanic basalt, and porous travertine with authentic mineral cleft relief.</p>
-        <dl>
-          <div><dt>Surface</dt><dd>Cleft Relief</dd></div>
-          <div><dt>Thickness</dt><dd>3 mm to 8 mm</dd></div>
-          <div><dt>Use</dt><dd>Interior, exterior</dd></div>
-        </dl>
-      </div>
+      <!-- 02 Marble Print -->
+      <article class="collection-card rv" onclick="openDrawer('sample','Marble Print')">
+        <div class="collection-slab-wrap" style="background:#1D2120">
+          <svg viewBox="0 0 600 240" preserveAspectRatio="none">
+            <rect width="100%" height="100%" fill="#1D2120"/>
+            <!-- Nero Marquina White & Gold Veins -->
+            <path d="M -30 60 L 160 110 L 290 80 L 460 170 L 630 140" stroke="#FFFFFF" stroke-width="3" fill="none" opacity="0.8"/>
+            <path d="M 160 110 L 220 190 L 340 220" stroke="#E6E3DB" stroke-width="1.8" fill="none" opacity="0.6"/>
+            <path d="M 290 80 L 360 30 L 490 20" stroke="#B68D40" stroke-width="2.2" fill="none" opacity="0.7"/>
+            <path d="M 80 200 L 240 130 L 390 150" stroke="#FFFFFF" stroke-width="1.5" fill="none" opacity="0.5"/>
+          </svg>
+          <div class="collection-slab-sheen"></div>
+        </div>
+        <div class="collection-header">
+          <h3>Marble Print</h3>
+          <span class="collection-num">[ 02 ]</span>
+        </div>
+        <p>Printed marble designs on flexible modified clay sheets, delivering a clean, modern marble aesthetic across large architectural wall areas.</p>
+        <div class="collection-specs">
+          <span class="spec-pill">High-Definition Print</span>
+          <span class="spec-pill">3mm to 8mm</span>
+          <span class="spec-pill">Interior & Exterior</span>
+        </div>
+        <div class="collection-action">
+          <span>Order Specimen Swatch</span>
+          <span>→</span>
+        </div>
+      </article>
 
-      <div class="row rv" onclick="openDrawer('sample','Natural Stone-Look')">
-        <h3>Natural Stone-Look</h3>
-        <p>Natural stone lookalikes in various earth colours, textures and sedimentary designs.</p>
-        <dl>
-          <div><dt>Surface</dt><dd>Sedimentary Strata</dd></div>
-          <div><dt>Thickness</dt><dd>3 mm to 8 mm</dd></div>
-          <div><dt>Use</dt><dd>Interior, exterior</dd></div>
-        </dl>
-      </div>
+      <!-- 03 Textured Stone -->
+      <article class="collection-card rv" onclick="openDrawer('sample','Textured Stone')">
+        <div class="collection-slab-wrap" style="background:#E6E2D8">
+          <svg viewBox="0 0 600 240" preserveAspectRatio="none">
+            <rect width="100%" height="100%" fill="#E6E2D8"/>
+            <!-- Horizontal Travertine & Slate Grooves -->
+            <line x1="0" y1="35" x2="600" y2="35" stroke="#C8C3B6" stroke-width="3"/>
+            <line x1="0" y1="40" x2="600" y2="40" stroke="#F5F3ED" stroke-width="1.5"/>
+            <line x1="0" y1="75" x2="600" y2="75" stroke="#C8C3B6" stroke-width="4"/>
+            <line x1="0" y1="80" x2="600" y2="80" stroke="#F5F3ED" stroke-width="2"/>
+            <line x1="0" y1="120" x2="600" y2="120" stroke="#BDB7A8" stroke-width="3"/>
+            <line x1="0" y1="155" x2="600" y2="155" stroke="#C8C3B6" stroke-width="5"/>
+            <line x1="0" y1="162" x2="600" y2="162" stroke="#F5F3ED" stroke-width="2"/>
+            <line x1="0" y1="200" x2="600" y2="200" stroke="#BDB7A8" stroke-width="3.5"/>
+          </svg>
+          <div class="collection-slab-sheen"></div>
+        </div>
+        <div class="collection-header">
+          <h3>Textured Stone</h3>
+          <span class="collection-num">[ 03 ]</span>
+        </div>
+        <p>Rich cleft slates, volcanic basalt, and porous travertine finishes with tactile relief, cast shadows, and raking textural depth.</p>
+        <div class="collection-specs">
+          <span class="spec-pill">Cleft Relief</span>
+          <span class="spec-pill">3mm to 8mm</span>
+          <span class="spec-pill">Interior & Exterior</span>
+        </div>
+        <div class="collection-action">
+          <span>Order Specimen Swatch</span>
+          <span>→</span>
+        </div>
+      </article>
+
+      <!-- 04 Natural Stone-Look -->
+      <article class="collection-card rv" onclick="openDrawer('sample','Natural Stone-Look')">
+        <div class="collection-slab-wrap" style="background:#DDD8CD">
+          <svg viewBox="0 0 600 240" preserveAspectRatio="none">
+            <rect width="100%" height="100%" fill="#DDD8CD"/>
+            <!-- Sedimentary Strata Layers -->
+            <path d="M 0 50 Q 150 70 300 45 T 600 65" stroke="#BFB8A8" stroke-width="8" fill="none"/>
+            <path d="M 0 110 Q 180 95 350 125 T 600 100" stroke="#A85A38" stroke-width="5" fill="none" opacity="0.6"/>
+            <path d="M 0 160 Q 120 180 280 155 T 600 175" stroke="#BFB8A8" stroke-width="7" fill="none"/>
+            <path d="M 0 215 Q 200 195 400 220 T 600 205" stroke="#8E928D" stroke-width="6" fill="none" opacity="0.5"/>
+          </svg>
+          <div class="collection-slab-sheen"></div>
+        </div>
+        <div class="collection-header">
+          <h3>Natural Stone-Look</h3>
+          <span class="collection-num">[ 04 ]</span>
+        </div>
+        <p>Natural stone lookalikes in various earth colours, textures and sedimentary designs, offering an organic alternative to heavy cladding stone.</p>
+        <div class="collection-specs">
+          <span class="spec-pill">Sedimentary Strata</span>
+          <span class="spec-pill">3mm to 8mm</span>
+          <span class="spec-pill">Interior & Exterior</span>
+        </div>
+        <div class="collection-action">
+          <span>Order Specimen Swatch</span>
+          <span>→</span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- Why Flexible Stone -->
+<!-- Why Flexible Stone (12 Benefits Architectural Grid) -->
 <section class="alt" id="why">
   <div class="w">
     <div class="head rv">
-      <h2>Why Flexible Stone</h2>
-      <p>12 structural and architectural advantages of Modified Clay Material (MCM) over traditional stone cladding.</p>
+      <div>
+        <span class="hero-tag" style="margin-bottom:12px">Engineering Advantages</span>
+        <h2>Why Flexible Stone</h2>
+      </div>
+      <p>12 structural and architectural advantages of Modified Clay Material (MCM) over traditional natural stone slabs.</p>
     </div>
 
     <div class="benefit-grid">
@@ -754,28 +1571,72 @@ tbody tr:last-child td{border-bottom:1px solid var(--line)}
   </div>
 </section>
 
-<!-- Thickness -->
+<!-- Three Thicknesses Section -->
 <section id="thickness">
   <div class="w">
     <div class="head rv">
-      <h2>Three thicknesses</h2>
-      <p>Thinner sheets bend more easily. Thicker sheets are stiffer and suit larger flat areas.</p>
+      <div>
+        <span class="hero-tag" style="margin-bottom:12px">Calibrated Profiles</span>
+        <h2>Three thicknesses</h2>
+      </div>
+      <p>Thinner sheets bend more easily around tight architectural radii. Thicker sheets provide structural rigidity for large planar exterior walls.</p>
     </div>
     <div class="th rv">
+      <!-- 3mm -->
       <div class="tc" onclick="openDrawer('sample')">
-        <b>3<i>mm</i></b>
-        <h3>For curves</h3>
-        <p>The most flexible. Columns, rounded corners, arches and feature walls.</p>
+        <div class="tc-cross-section">
+          <svg viewBox="0 0 200 60">
+            <path d="M 20 45 Q 100 10 180 45" stroke="var(--accent)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <text x="100" y="55" font-size="8" fill="var(--mut)" text-anchor="middle" font-family="var(--f)">HIGH-FLEX PROFILE (3MM)</text>
+          </svg>
+        </div>
+        <div>
+          <b>3<i>mm</i></b>
+          <h3>For curves & arches</h3>
+          <p>The most flexible profile. Ideal for cylindrical columns, rounded corners, curved feature walls, and arches.</p>
+        </div>
+        <div class="tc-action">
+          <span>Specify 3mm in Sample Kit</span>
+          <span>→</span>
+        </div>
       </div>
+
+      <!-- 5mm -->
       <div class="tc" onclick="openDrawer('sample')">
-        <b>5<i>mm</i></b>
-        <h3>All-round</h3>
-        <p>A balance of flexibility and stiffness for interior walls and gentle curves.</p>
+        <div class="tc-cross-section">
+          <svg viewBox="0 0 200 60">
+            <path d="M 20 40 Q 100 20 180 40" stroke="var(--ink)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <text x="100" y="55" font-size="8" fill="var(--mut)" text-anchor="middle" font-family="var(--f)">BALANCED CORE (5MM)</text>
+          </svg>
+        </div>
+        <div>
+          <b>5<i>mm</i></b>
+          <h3>All-round application</h3>
+          <p>A balanced profile offering flexibility and stiffness for living areas, lobbies, corridors, and gentle curved transitions.</p>
+        </div>
+        <div class="tc-action">
+          <span>Specify 5mm in Sample Kit</span>
+          <span>→</span>
+        </div>
       </div>
+
+      <!-- 8mm -->
       <div class="tc" onclick="openDrawer('sample')">
-        <b>8<i>mm</i></b>
-        <h3>For large surfaces</h3>
-        <p>The sturdiest. Large flat areas, heavy-wear zones and exterior facades.</p>
+        <div class="tc-cross-section">
+          <svg viewBox="0 0 200 60">
+            <line x1="20" y1="30" x2="180" y2="30" stroke="var(--ink)" stroke-width="8" stroke-linecap="round"/>
+            <text x="100" y="52" font-size="8" fill="var(--mut)" text-anchor="middle" font-family="var(--f)">RIGID FACADE SLAB (8MM)</text>
+          </svg>
+        </div>
+        <div>
+          <b>8<i>mm</i></b>
+          <h3>For large facades</h3>
+          <p>The sturdiest architectural grade. Engineered for expansive planar areas, exterior building facades, and heavy-wear zones.</p>
+        </div>
+        <div class="tc-action">
+          <span>Specify 8mm in Sample Kit</span>
+          <span>→</span>
+        </div>
       </div>
     </div>
   </div>
@@ -784,49 +1645,57 @@ tbody tr:last-child td{border-bottom:1px solid var(--line)}
 <!-- Applications -->
 <section class="alt" id="applications">
   <div class="w">
-    <div class="head rv"><h2>Applications</h2></div>
+    <div class="head rv">
+      <div>
+        <span class="hero-tag" style="margin-bottom:12px">Architectural Scope</span>
+        <h2>Applications</h2>
+      </div>
+      <p>From luxury residences and hospitality suites to high-exposure commercial facades and architectural monuments.</p>
+    </div>
     <ul class="al">
       <li class="rv">
         <h3>Interior walls</h3>
-        <p>Living areas, lobbies, bathrooms and feature walls.</p>
+        <p>Living rooms, hotel lobbies, feature walls, bathrooms, and elevator shafts.</p>
       </li>
       <li class="rv">
         <h3>Exterior facades</h3>
-        <p>Lightweight, weather-resistant cladding for building exteriors.</p>
+        <p>Weather-resistant, UV-stable lightweight cladding for commercial & residential elevations.</p>
       </li>
       <li class="rv">
         <h3>Curved walls and columns</h3>
-        <p>Bends around curved architectural surfaces where rigid stone cannot.</p>
+        <p>Wraps smoothly around circular pillars, curved reception counters, and arches down to R ≥ 200 mm.</p>
       </li>
       <li class="rv">
         <h3>Uneven surfaces</h3>
-        <p>Follows irregular substrates directly during installation.</p>
+        <p>Conforms directly to irregular architectural substrates without heavy demolition.</p>
       </li>
       <li class="rv">
         <h3>Renovation</h3>
-        <p>Tile-over-tile application with less load, zero dust and lower labour.</p>
+        <p>Tile-over-tile direct bonding with minimal dead load, zero dust, and significantly lower labour.</p>
       </li>
     </ul>
 
     <!-- Before & After Transformation Slider -->
     <div class="before-after-box rv">
       <div class="ba-header">
-        <h3 style="font-family:var(--h);font-size:1.4rem">Surface Renovation</h3>
-        <span class="mut" style="font-size:.9rem">Drag to compare dated substrate vs. Envora Flexible Stone</span>
+        <h3 style="font-family:var(--h);font-size:1.5rem">Surface Renovation</h3>
+        <span class="mut" style="font-size:.9rem">Drag divider to compare dated tile substrate vs. seamless Envora Flexible Stone</span>
       </div>
 
       <div class="ba-frame" id="ba-frame">
         <!-- After Layer -->
         <div class="ba-panel ba-after">
           <div class="ba-content">
-            <h4>Envora Flexible Stone</h4>
-            <p>Seamless, continuous stone finish. Zero demolition, lightweight and rapid installation.</p>
+            <span class="spec-pill" style="margin-bottom:12px;display:inline-block">After: Envora MCM Stone</span>
+            <h4>Continuous Stone Cladding</h4>
+            <p>Seamless, continuous stone finish. Zero demolition, lightweight, waterproof, and rapid installation.</p>
           </div>
         </div>
 
         <!-- Before Layer -->
         <div class="ba-panel ba-before" id="ba-before-panel">
           <div class="ba-content">
+            <span class="spec-pill" style="margin-bottom:12px;display:inline-block;background:#3B403D;color:#fff">Before: Dated Substrate</span>
             <h4>Traditional Flat Substrate</h4>
             <p>Dated tiles and heavy masonry. High dead load, dusty demolition, and rigid seams.</p>
           </div>
@@ -834,7 +1703,7 @@ tbody tr:last-child td{border-bottom:1px solid var(--line)}
 
         <!-- Handle -->
         <div class="ba-handle" id="ba-handle">
-          <div class="ba-knob">◀ ▶</div>
+          <div class="ba-knob">◀ || ▶</div>
         </div>
       </div>
     </div>
@@ -845,55 +1714,64 @@ tbody tr:last-child td{border-bottom:1px solid var(--line)}
 <section id="compare">
   <div class="w">
     <div class="head rv">
-      <h2>Compared</h2>
-      <p>A general comparison for planning. Figures depend on the product and project.</p>
+      <div>
+        <span class="hero-tag" style="margin-bottom:12px">Material Specification</span>
+        <h2>Compared</h2>
+      </div>
+      <p>A technical specification comparison for architectural planning, structural load engineering, and project budgeting.</p>
     </div>
     <div class="scroll rv">
       <table>
         <thead>
           <tr>
-            <th></th>
-            <th class="me">Flexible Stone (MCM)</th>
-            <th>Natural stone</th>
-            <th>Tiles</th>
+            <th>Parameter</th>
+            <th class="me">Flexible Stone (MCM) ★</th>
+            <th>Natural stone slab</th>
+            <th>Ceramic / Porcelain tiles</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Weight</td>
-            <td class="me">Lightweight (~3.8 – 5.5 kg/m²)</td>
+            <td>Weight / Dead Load</td>
+            <td class="me">Lightweight (~3.5 – 5.5 kg/m²)</td>
             <td>Heavy (45 – 65 kg/m²)</td>
             <td>Moderate to heavy (20 – 30 kg/m²)</td>
           </tr>
           <tr>
-            <td>Installation</td>
-            <td class="me">Faster (direct polymer adhesive)</td>
-            <td>Slow, specialist framing</td>
-            <td>Slower, joint by joint</td>
+            <td>Installation Speed</td>
+            <td class="me">Fast (direct polymer adhesive bonding)</td>
+            <td>Slow, requires structural dry-framing</td>
+            <td>Slower, joint by joint mortar work</td>
           </tr>
           <tr>
-            <td>Labour and cost</td>
-            <td class="me">Lower labour</td>
-            <td>High labour & machinery</td>
-            <td>Moderate labour</td>
+            <td>Labour & Equipment Cost</td>
+            <td class="me">Significantly lower labour</td>
+            <td>High labour, cranes & wet cutting machines</td>
+            <td>Moderate specialist tile labour</td>
           </tr>
           <tr>
-            <td>Dust on site</td>
-            <td class="me">Less (cut with utility knife)</td>
-            <td>High from wet diamond saws</td>
-            <td>Moderate to high</td>
+            <td>Dust & Site Pollution</td>
+            <td class="me">Minimal (cuts cleanly with utility knife)</td>
+            <td>Extremely high dust from diamond angle grinders</td>
+            <td>Moderate to high cutting dust</td>
           </tr>
           <tr>
-            <td>Curved surfaces</td>
-            <td class="me">Bends to fit (R ≥ 200mm)</td>
-            <td>Very difficult (requires CNC)</td>
-            <td>Not suitable</td>
+            <td>Curved Wall & Column Compatibility</td>
+            <td class="me">Cold-bends on site (R ≥ 200mm)</td>
+            <td>Requires expensive 3D CNC pre-milling</td>
+            <td>Rigid, completely unsuitable</td>
           </tr>
           <tr>
-            <td>Load on structure</td>
-            <td class="me">Low (85% reduction)</td>
-            <td>High structural load</td>
-            <td>Moderate</td>
+            <td>Renovation (Tile-over-Tile)</td>
+            <td class="me">Direct overlay with zero demolition</td>
+            <td>Requires stripping wall down to RCC</td>
+            <td>Thick buildup, adds excess weight</td>
+          </tr>
+          <tr>
+            <td>Structural Load on Building</td>
+            <td class="me">Minimal (85% dead load reduction)</td>
+            <td>Heavy structural reinforcement required</td>
+            <td>Moderate structural load</td>
           </tr>
         </tbody>
       </table>
@@ -905,8 +1783,11 @@ tbody tr:last-child td{border-bottom:1px solid var(--line)}
 <section class="alt" id="faq">
   <div class="w">
     <div class="head rv">
-      <h2>Installation & FAQs</h2>
-      <p>Clear, direct answers for architects, interior designers, and installation contractors.</p>
+      <div>
+        <span class="hero-tag" style="margin-bottom:12px">Contractor FAQ</span>
+        <h2>Installation & FAQs</h2>
+      </div>
+      <p>Clear, practical answers for architects, interior designers, and installation contractors.</p>
     </div>
 
     <div class="faq-list rv">
@@ -916,7 +1797,17 @@ tbody tr:last-child td{border-bottom:1px solid var(--line)}
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-answer">
-          Flexible polymer tile adhesive (C2TE S1/S2 grade) is recommended for cement and masonry substrates. For drywall, plywood, or tile-over-tile renovation, use high-strength MS polymer mastic or polyurethane structural adhesive with 100% troweled coverage.
+          Flexible polymer tile adhesive (C2TE S1/S2 grade) is recommended for cement, plaster, and masonry substrates. For drywall, plywood, or tile-over-tile renovation, use high-strength MS polymer mastic or polyurethane structural adhesive with 100% notched troweled coverage.
+        </div>
+      </div>
+
+      <div class="faq-row">
+        <button class="faq-btn" onclick="toggleFaq(this)">
+          <span>Can sheets be installed on curved walls and circular columns?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. Envora Flexible Stone cold-bends smoothly around cylindrical pillars, curved walls, and architectural arches down to a 200 mm radius without cracking or requiring heat-gun manipulation.
         </div>
       </div>
 
@@ -926,59 +1817,69 @@ tbody tr:last-child td{border-bottom:1px solid var(--line)}
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-answer">
-          Sheets cut cleanly with a standard heavy-duty utility knife and straightedge, or mechanical shears. There is no need for wet diamond grinders, and zero hazardous airborne crystalline silica dust is produced on site.
+          Sheets can be trimmed and cut cleanly on site using a standard heavy-duty utility knife, straight-edge ruler, or handheld shears. No wet diamond table saws, noisy machinery, or hazardous silica dust are produced.
         </div>
       </div>
 
       <div class="faq-row">
         <button class="faq-btn" onclick="toggleFaq(this)">
-          <span>Can it be installed directly over existing tiles?</span>
+          <span>Is the material suitable for exterior facades and monsoon exposure?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-answer">
-          Yes. Clean the existing ceramic tile surface, apply a bonding primer, and bond Envora Flexi sheets with MS polymer adhesive. This cuts renovation downtime from weeks to hours with zero demolition mess.
+          Envora Flexible Stone is formulated with UV-stable mineral pigments and modified clay polymers. It is Class A fire rated, water-resistant, frost-thaw proof, and tested to withstand high exterior weather cycles.
         </div>
       </div>
 
       <div class="faq-row">
         <button class="faq-btn" onclick="toggleFaq(this)">
-          <span>How does it perform under exterior weather?</span>
+          <span>How does Envora Flexi compare in weight to natural marble slabs?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-answer">
-          Envora Flexi sheets are Class A non-combustible, UV stable (Grade 5 certified non-yellowing), hydrophobic with &lt;0.5% water absorption, and freeze-thaw resistant from -40°C to +80°C.
+          Traditional natural marble slabs weigh 45 to 65 kg per square meter, requiring structural anchoring. Envora Flexible Stone weighs only ~3.5 to 5.5 kg per square meter—reducing dead load by approximately 85%.
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Contact & Inquiry -->
+<!-- Contact / Trade Inquiries -->
 <section id="contact">
-  <div class="w">
-    <h2 class="big rv">Begin with a sample.</h2>
-    <div class="cg">
-      <div class="rv">
-        <p class="mut" style="max-width:38ch;font-size:1.05rem">
-          Tell us about your project: the surface, the area, and whether it is interior or exterior. We will help you choose a finish and thickness.
-        </p>
-        <div class="cta">
-          <button class="btn" onclick="openDrawer('sample')">Request a sample</button>
-          <button class="lnk" onclick="openDrawer('quote')">Get a quote</button>
-        </div>
+  <div class="w contact-grid">
+    <div class="contact-left rv">
+      <span class="hero-tag" style="margin-bottom:12px">B2B Trade & Consultation</span>
+      <h2>Start your specification</h2>
+      <p>Speak directly with our technical team. We supply physical sample kits, custom batch manufacturing, CAD details, and site installation advisories for architects, designers, and builders.</p>
+      <div class="cta-group">
+        <button class="btn" onclick="openDrawer('sample')">Request a Sample Kit</button>
+        <button class="lnk" onclick="openDrawer('quote')">Get a Commercial Quote</button>
       </div>
-      <div class="reach rv">
-        <div><span>WhatsApp</span><a href="https://wa.me/919928156789?text=Hi%20Envora%20Flexi,%20I%20would%20like%20to%20inquire%20about%20Flexible%20Stone%20Sheets." target="_blank">+91 99281 56789</a></div>
-        <div><span>Email</span><a href="mailto:envoraflexi@gmail.com">envoraflexi@gmail.com</a></div>
-        <div><span>Phone</span><a href="tel:+919928156789">+91 99281 56789</a></div>
-        <div><span>Address</span><span>Envora Flexi Private Limited, India</span></div>
+    </div>
+    <div class="reach rv">
+      <div>
+        <span>WhatsApp</span>
+        <a href="https://wa.me/919928156789?text=Hi%20Envora%20Flexi,%20I%20would%20like%20to%20inquire%20about%20Flexible%20Stone%20Sheets." target="_blank">+91 99281 56789</a>
+      </div>
+      <div>
+        <span>Email</span>
+        <a href="mailto:envoraflexi@gmail.com">envoraflexi@gmail.com</a>
+      </div>
+      <div>
+        <span>Direct Phone</span>
+        <a href="tel:+919928156789">+91 99281 56789</a>
+      </div>
+      <div>
+        <span>Manufacturing & Supply</span>
+        <span>Envora Flexi Private Limited, India</span>
       </div>
     </div>
   </div>
 </section>
+
 </main>
 
-<!-- Footer -->
+<!-- Architectural Footer -->
 <footer class="site-footer">
   <div class="w footer-top">
     <div class="footer-brand">
@@ -1078,39 +1979,50 @@ tbody tr:last-child td{border-bottom:1px solid var(--line)}
         <textarea id="form-notes" class="form-textarea" rows="3" placeholder="Interior curved wall, exterior facade, approx 150 sq. meters"></textarea>
       </div>
 
-      <button type="submit" class="btn" style="width:100%;text-align:center;padding:16px">Send Request via WhatsApp</button>
+      <button type="submit" class="btn" style="width:100%;text-align:center;padding:18px">Send Request via WhatsApp</button>
       <p class="form-privacy-note">By requesting a sample, you agree to our <a href="/privacy" target="_blank">Privacy Policy</a> and <a href="/terms" target="_blank">Terms</a>. Your specifications are used strictly for trade fulfillment.</p>
     </form>
   </div>
 </aside>
 
-<!-- Floating WhatsApp Action -->
+<!-- Floating WhatsApp Concierge -->
 <a href="https://wa.me/919928156789?text=Hi%20Envora%20Flexi,%20I%20am%20interested%20in%20Flexible%20Stone%20MCM%20Wall%20Cladding%20Sheets." target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <span class="wa-dot"></span>
   <svg class="wa-icon" viewBox="0 0 24 24">
     <path d="M12.031 2C6.495 2 2 6.495 2 12.031c0 1.907.534 3.69 1.463 5.217L2 22l4.908-1.423c1.472.846 3.178 1.332 5.003 1.332 5.536 0 10.031-4.495 10.031-10.031S17.567 2 12.031 2zm5.727 14.198c-.242.684-1.2 1.258-1.956 1.378-.518.082-1.196.15-3.486-.8-2.927-1.214-4.81-4.218-4.956-4.412-.146-.194-1.187-1.583-1.187-3.02 0-1.437.75-2.143 1.018-2.434.267-.291.583-.364.777-.364.194 0 .388.002.558.01.18.008.423-.068.66.5.243.583.825 2.012.898 2.158.073.146.121.316.024.51-.097.194-.146.316-.291.485-.146.17-.306.379-.437.51-.146.146-.298.304-.128.596.17.291.756 1.246 1.623 2.017 1.115.992 2.055 1.3 2.346 1.446.291.146.461.121.631-.073.17-.194.729-.85 9.23-1.141.194-.291.388-.243.655-.146.267.097 1.698.8 1.989.946.291.146.485.219.558.34.073.121.073.704-.17 1.388z"/>
   </svg>
   <span>WhatsApp Concierge</span>
 </a>
 
-<!-- Toast -->
+<!-- Toast Notification -->
 <div class="toast" id="toast"></div>
 
 <script>
+// Scroll Progress Bar
+window.addEventListener('scroll', function(){
+  var scrollEl = document.getElementById('scroll-progress');
+  if(scrollEl){
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+    scrollEl.style.width = pct + '%';
+  }
+});
+
 // Scroll Reveal Observer
 (function(){
-  if(matchMedia("(prefers-reduced-motion:reduce)").matches||!("IntersectionObserver" in window))return;
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches || !("IntersectionObserver" in window)) return;
   document.documentElement.classList.add("js");
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(e.isIntersecting){
-        e.target.classList.add("in");
-        io.unobserve(e.target);
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add("in");
+        io.unobserve(entry.target);
       }
     });
-  },{threshold:.08});
+  }, {threshold: 0.08});
   document.querySelectorAll(".rv").forEach(function(el){
-    var i=Array.prototype.indexOf.call(el.parentNode.children,el);
-    el.style.setProperty("--d",Math.min(i*.07,.35)+"s");
+    var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
+    el.style.setProperty("--d", Math.min(idx * 0.08, 0.35) + "s");
     io.observe(el);
   });
 })();
@@ -1119,7 +2031,7 @@ tbody tr:last-child td{border-bottom:1px solid var(--line)}
 window.addEventListener('scroll', function(){
   var header = document.getElementById('site-header');
   if(header){
-    if(window.scrollY > 30){
+    if(window.scrollY > 25){
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
@@ -1127,14 +2039,17 @@ window.addEventListener('scroll', function(){
   }
 });
 
-// Interactive Hero Veins Parallax
+// Interactive Hero Veins & Monolith Parallax
 (function(){
   var veins = document.getElementById('hero-veins-svg');
-  if(!veins || matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  var monolith = document.getElementById('monolith-canvas');
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  
   window.addEventListener('mousemove', function(e){
-    var x = (e.clientX / window.innerWidth - 0.5) * 20;
-    var y = (e.clientY / window.innerHeight - 0.5) * 20;
-    veins.style.transform = 'translate3d(' + (-x) + 'px, ' + (-y) + 'px, 0)';
+    var x = (e.clientX / window.innerWidth - 0.5) * 18;
+    var y = (e.clientY / window.innerHeight - 0.5) * 18;
+    if(veins) veins.style.transform = 'translate3d(' + (-x) + 'px, ' + (-y) + 'px, 0)';
+    if(monolith) monolith.style.transform = 'perspective(800px) rotateY(' + (x * 0.3) + 'deg) rotateX(' + (-y * 0.3) + 'deg)';
   });
 })();
 
@@ -1146,6 +2061,7 @@ window.addEventListener('scroll', function(){
   if(!frame || !handle || !before) return;
 
   var isSliding = false;
+
   function setPosition(clientX) {
     var rect = frame.getBoundingClientRect();
     var pos = (clientX - rect.left) / rect.width;
@@ -1188,7 +2104,7 @@ function openDrawer(mode, finishName) {
   var backdrop = document.getElementById('drawer-backdrop');
   var title = document.getElementById('drawer-title');
   if(drawer && backdrop) {
-    if(title) title.textContent = mode === 'quote' ? 'Request Project Quote' : 'Request a Sample';
+    if(title) title.textContent = mode === 'quote' ? 'Request Project Quote' : 'Request Architect Sample';
     if(finishName) {
       document.querySelectorAll('.chip').forEach(function(c){
         if(c.textContent.trim() === finishName) {
@@ -1241,7 +2157,7 @@ function handleDrawerSubmit(e) {
   );
 
   window.open("https://wa.me/919928156789?text=" + msg, "_blank");
-  showToast("Request generated. Connecting to WhatsApp...");
+  showToast("Connecting to WhatsApp concierge...");
   closeDrawer();
 }
 
